@@ -30,7 +30,7 @@ export function SearchFilders(props: SearchFildersProps) {
 
         <S.Button onClick={handleClick}>Buscar</S.Button>
         {form.errors.term && <S.Paragraph>{form.errors.term}</S.Paragraph>}
-        {sum.zipCodeSum === 0 ? null : <S.Paragraph>Soma: {sum.zipCodeSum}</S.Paragraph>}
+        {sum.zipCodeSum === 0 ? null : <S.Paragraph aria-label='zipcodeSum'>Soma: {sum.zipCodeSum}</S.Paragraph>}
       </S.Wrapper>
     </>
   )

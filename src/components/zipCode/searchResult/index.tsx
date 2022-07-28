@@ -23,7 +23,7 @@ export function SearchResult(props: SearchResultProps) {
      </div>
      <div>
       <h3>Bairro</h3>
-      <p>{props.items?.bairro === '' ? 'Bairro não localizado' :props.items?.logradouro }</p>
+      <p aria-label='district'>{props.items?.bairro === '' ? 'Bairro não localizado' :props.items?.logradouro }</p>
      </div>
     </S.Wrapper>
   )

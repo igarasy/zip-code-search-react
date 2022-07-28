@@ -5,7 +5,9 @@ export default function mountComponent() {
   render(<ZipCode />)
   const onSearch = jest.fn()
   const input = screen.getByLabelText('zipIput')
+  const district = screen.getByLabelText('district')
   const button = screen.getByRole('button', { name: /Buscar/i })
+
   
-  return { input, button, onSearch }
+  return { input, button, onSearch, district }
 }
