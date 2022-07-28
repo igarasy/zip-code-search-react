@@ -13,11 +13,13 @@ export function SearchFilders(props: SearchFildersProps) {
     onSubmit: props.onSearch,
   })
 
-  const sum = useCalculateZipCode()
+  const { calculateZipCode,zipCodeSum } = useCalculateZipCode(form.values.term)
   const handleClick = () => {
     form.submitForm()
-    sum.calculateZipCode(form.values.term)
+    calculateZipCode()
   }
+
+
   return (
     <>
       <S.Wrapper>
@@ -30,7 +32,7 @@ export function SearchFilders(props: SearchFildersProps) {
 
         <S.Button onClick={handleClick}>Buscar</S.Button>
         {form.errors.term && <S.Paragraph>{form.errors.term}</S.Paragraph>}
-        {sum.zipCodeSum === 0 ? null : <S.Paragraph aria-label='zipcodeSum'>Soma: {sum.zipCodeSum}</S.Paragraph>}
+        {zipCodeSum === 0 ? null : <S.Paragraph aria-label='zipcodeSum'>Soma: {zipCodeSum}</S.Paragraph>}
       </S.Wrapper>
     </>
   )

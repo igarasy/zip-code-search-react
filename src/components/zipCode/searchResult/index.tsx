@@ -7,8 +7,6 @@ export interface SearchResultProps {
   items?: DtoZipCode
 }
 
-
-
 export function SearchResult(props: SearchResultProps) {
   return (
     <S.Wrapper>
