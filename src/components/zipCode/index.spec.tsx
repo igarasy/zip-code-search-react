@@ -9,12 +9,15 @@ describe('Testar a busca de CEP', () => {
     expect(component.input).toHaveTextContent('')
   })
 
-  it('Ao digitar um CEP, deve somar os números dele', () => {
+  it('Ao digitar um CEP, deve somar os números dele', async () => {
     const component = mountComponent()
     userEvent.type(component.input, '07500000')
     userEvent.click(component.button)
     const sumResult = screen.getByLabelText('zipcodeSum')
-    expect(sumResult).toHaveTextContent('12')
+    await waitFor(() => {
+      expect(sumResult).toHaveTextContent('12')
+    })
+    
   })
 
   it('Caso não tenha bairro, mostrar a mensagem "Bairro não localizado"', async () => {

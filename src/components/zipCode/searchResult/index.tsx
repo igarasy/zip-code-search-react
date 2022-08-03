@@ -1,13 +1,15 @@
 import * as React from 'react'
 import { DtoZipCode } from '../../../services/ws/dtoZipCode'
 import * as S from './styled'
-import { useCalculateZipCode } from '../hooks/useCalculateZipCode'
+import { useCalculateZipCode } from './useCalculateZipCode'
 
 export interface SearchResultProps {
   items?: DtoZipCode
 }
 
 export function SearchResult(props: SearchResultProps) {
+  const calculatedZipCode = useCalculateZipCode(props.items?.cep)
+
   return (
     <S.Wrapper>
      <div>
@@ -23,6 +25,7 @@ export function SearchResult(props: SearchResultProps) {
       <h3>Bairro</h3>
       <p aria-label='district'>{props.items?.bairro === '' ? 'Bairro não localizado' :props.items?.logradouro }</p>
      </div>
+     <p aria-label='zipcodeSum'>{calculatedZipCode.value}</p>
     </S.Wrapper>
   )
 }

@@ -9,7 +9,6 @@ import { useSearchService } from './hooks/useSearchService'
 
 export function ZipCode() {
   const service = useSearchService()
-  console.log(service.data)
 
   // ---------------------------------------------
   // Transformations
